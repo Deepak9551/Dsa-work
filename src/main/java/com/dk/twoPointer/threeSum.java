@@ -10,32 +10,40 @@ import java.util.List;
 public class threeSum {
     public static void main(String[] args) {
 
-        int[] threeSumArray = {1, 2, 3, 4, 5, 6, 7, 8, 9};
+        int[] threeSumArray = {-1,2,1,-4};
 
-        threeSumClosesToTarget(threeSumArray, 12);
+    int ans  =    threeSumClosesToTarget(threeSumArray, 12);
+        System.out.println(ans);
     }
 
-    public static void threeSumClosesToTarget(int[] arr, int target) {
+    public static int threeSumClosesToTarget(int[] arr, int target) {
 
-
+        Arrays.sort(arr);
+        int closest = arr[0] + arr[1] + arr[2];
         int ans = 0;
         for (int i = 0; i < arr.length - 2; i++) {
+
+//            if(i>0 && arr[i] == arr[i-1]) continue;
             int left = i + 1;
             int right = arr.length - 1;
 
+
+
             while (left < right) {
                 int sum = arr[i] + arr[left] + arr[right];
-                if (sum >= target) {
-                    right--;
-                } else {
-                    ans += (right - left);
-                    left++;
 
+                //current sum, pehle wale closest se target ke zyada paas hai
+                if (Math.abs(target - sum) < Math.abs(target - closest)) {
+                    closest = sum;
                 }
-
+                if (sum < target) {
+                    left++;
+                } else {
+                    right--;
+                }
             }
 
         }
-        System.out.println(ans);
+     return closest;
     }
-}
+    }

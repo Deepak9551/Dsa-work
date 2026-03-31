@@ -15,16 +15,16 @@ public class UniquePair {
         while(cm<nums.length) {
             if (nums[officer] == nums[cm]) {
                 System.out.println("Skipping " + nums[cm] + " as it is duplicate");
-                cm++;
+
                 continue;
             } else if (nums[officer] != nums[cm]) {
                 swap(nums, officer + 1, cm);
                 officer++;
-                cm++;
+
                 unique++;
             }
 
-
+            cm++;
         }
         System.out.println(Arrays.toString(nums));
     }

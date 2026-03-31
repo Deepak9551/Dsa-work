@@ -1,11 +1,18 @@
 package kunal_dsa.BinarySearch;
 
+import java.util.Arrays;
+
 public class BinarySearchFindFirstLast {
     public static void main(String[] args) {
         int[] arr = {1,2,3,4,8,9,10,11,12};
         int target = 8;
-//        System.out.println(Arrays.toString(binarySearch2(arr,8)));
+        System.out.println(Arrays.toString(binarySearch2(arr,8)));
         InfiniteSearch(arr,target);
+
+        int[] arr1 = {1,2,2,2,3,3,3,5,5,5};
+        System.out.println(Arrays.toString(binarySearch(arr1, 2)));
+        int[] arr2 = {1,2,2,2,3,3,3,5,5,5};
+        System.out.println(Arrays.toString(binarySearch2(arr2, 5)));
     }
 
     private static int[] binarySearch(int[] arr, int target) {
@@ -98,10 +105,10 @@ public class BinarySearchFindFirstLast {
 //        System.out.println(a);
 
         // my initial start and end
-        int start =  arr[0];
-        int end  =  arr[1];
+        int start = 0;
+        int end  = 1;
         // my work
-        while(target> end){
+        while(target> arr[end]){
 
             int newStart = end + 1;
             end  = end +   (end - ( start - 1) ) * 2;
