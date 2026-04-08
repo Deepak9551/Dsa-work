@@ -51,7 +51,7 @@ public class BinarySearchPivot {
 
         int[] dupArray = {3, 4, 4, 6,6,7, 7,8, 0, 1, 2};
         System.out.println(Arrays.toString(arr));
-        System.out.println(countRotations(arr));
+        System.out.println("Times Rotated = "+ (countRotations(arr) + 1));
   }
 
     public static int binarySearch(int[] arr, int start, int end, int target, boolean isAscending) {
